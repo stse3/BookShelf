@@ -6,6 +6,7 @@ function Book(title, author,pages, isRead){
     this.author = author; //author 
     this.pages = pages;
     this. isRead = isRead;
+    this.index = myLibrary.length;
 
 }
 
@@ -21,6 +22,13 @@ function addBookToLibrary(title,author,pages,isRead){
 function createBookCard(book){
     const card= document.createElement("div");
     card.classList.add("book-card");
+    
+    const removeBtn =document.createElement("button");
+    removeBtn.classList.add("remove");
+    removeBtn.textContent ="X";
+    card.appendChild(removeBtn);
+    
+
 
     const title = document.createElement("h1");
     title.classList.add("title");
@@ -46,7 +54,11 @@ function createBookCard(book){
         isRead.textContent ="Unread";
         isRead.style.background = 'rgb(228, 101, 92)';
     }
-
+    const removeCardBtn = document.createElement("button");
+    removeCardBtn.classList.add("remove");
+    removeCardBtn.value=book.index;
+    removeCardBtn.textContent='X'; 
+    
     isRead.addEventListener("click", () => {
         book.isRead = !book.isRead; // Toggle the boolean value
         if (book.isRead){
@@ -58,14 +70,17 @@ function createBookCard(book){
         }
 
     });
-    card.appendChild(isRead);
+
+    card.append(isRead);
     return card;//return the bookcard
 }
 
 const createBookButton  = document.querySelector(".add-book");
-const createBookDialog = document.getElementById("create-book")
+const createBookDialog = document.getElementById("create-book");
+const bookForm = document.getElementById("book-form");
 function createBook(){
     createBookDialog.showModal();
+
 }
 createBookButton.addEventListener("click", createBook);
 
@@ -73,13 +88,35 @@ const cancelBttn = document.querySelector(".exit");
 cancelBttn.addEventListener("click", (event)=>{
     event.preventDefault();
     createBookDialog.close()
-})
+});
+
+const bottomCancelButton = document.querySelector(".cancel");
+bottomCancelButton.addEventListener("click", (event)=>{
+    event.preventDefault();
+    createBookDialog.close()
+});
+
 
 //save and submit button
 const saveButton = document.querySelector(".save");
 saveButton.addEventListener("click", (event)=>{
+    event.preventDefault();//prevent form submitting
 
-})
+    //get user input
+    const title = document.getElementById("title").value.trim();
+    const author = document.getElementById("author").value.trim();
+    const pages = document.getElementById("page").value.trim();
+    const isRead = document.getElementById("isRead").checked; //boolean for checked
+
+    if (title && author && pages){
+        addBookToLibrary(title,author,pages,isRead);
+        bookForm.reset(); 
+        createBookDialog.close(); //close the form    
+        
+    }else{
+        alert("Please fill out all fields.");
+    }
+});
 addBookToLibrary( "Vibration Site", "Instantel Micromate", "1676",true);
 addBookToLibrary( "Vibration Site", "GeoSonic Sensor", "3000",false);
 addBookToLibrary( "Vibration Site", "GeoSonic Sensor", "3000",false);
