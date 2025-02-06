@@ -1,18 +1,20 @@
 const myLibrary = [];
 const bookshelf = document.querySelector(".book-container");
 
-function Book(author, title,pages, hasRead){
+function Book(title, author,pages, isRead){
     this.title = title; //title
     this.author = author; //author 
     this.pages = pages;
-    this. read = read;
+    this. isRead = isRead;
 
 }
 
-function addBookToLibrary(author,title,pages,isRead){
+function addBookToLibrary(title,author,pages,isRead){
     //stores the Book object in the array myLibrary
-    const book = new Book (author,title,pages,isRead);
+    const book = new Book (title,author,pages,isRead);
     myLibrary.push(book);
+    const bookCard = createBookCard(book);
+    bookshelf.appendChild(bookCard);
 
 }
 
@@ -32,15 +34,41 @@ function createBookCard(book){
 
     const pages = document.createElement("p");
     pages.classList.add("pages");
-    pages.textContent = `${book.pages}`;
+    pages.textContent = `${book.pages} pages`;
     card.appendChild(pages);
 
     const isRead = document.createElement("button")
     isRead.classList.add("read");
-    if (isRead){
-        isRead.textContent= "Read";//check boolean for read stauts
+    if (book.isRead){
+        isRead.textContent = "Read";
+        isRead.style.background = 'rgb(87, 179, 233)';
     }else{
         isRead.textContent ="Unread";
+        isRead.style.background = 'rgb(228, 101, 92)';
     }
+
+    isRead.addEventListener("click", () => {
+        book.isRead = !book.isRead; // Toggle the boolean value
+        if (book.isRead){
+            isRead.textContent = "Read";
+            isRead.style.background = 'rgb(87, 179, 233)';
+        }else{
+            isRead.textContent ="Unread";
+            isRead.style.background = 'rgb(228, 101, 92)';
+        }
+
+    });
     card.appendChild(isRead);
+    return card;//return the bookcard
 }
+
+const createBookButton  = document.querySelector(".add-book");
+// createBookButton.addEventListener("click", createBook());
+
+function createBook(){
+    
+}
+addBookToLibrary( "Vibration Site", "Instantel Micromate", "1676",true);
+addBookToLibrary( "Vibration Site", "GeoSonic Sensor", "3000",false);
+addBookToLibrary( "Vibration Site", "GeoSonic Sensor", "3000",false);
+addBookToLibrary( "Vibration Site", "GeoSonic Sensor", "3000",true);
