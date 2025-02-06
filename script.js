@@ -63,12 +63,25 @@ function createBookCard(book){
 }
 
 const createBookButton  = document.querySelector(".add-book");
-// createBookButton.addEventListener("click", createBook());
-
+const createBookDialog = document.getElementById("create-book")
 function createBook(){
-    
+    createBookDialog.showModal();
 }
+createBookButton.addEventListener("click", createBook);
+
+const cancelBttn = document.querySelector(".exit");
+cancelBttn.addEventListener("click", (event)=>{
+    event.preventDefault();
+    createBookDialog.close()
+})
+
+//save and submit button
+const saveButton = document.querySelector(".save");
+saveButton.addEventListener("click", (event)=>{
+
+})
 addBookToLibrary( "Vibration Site", "Instantel Micromate", "1676",true);
 addBookToLibrary( "Vibration Site", "GeoSonic Sensor", "3000",false);
 addBookToLibrary( "Vibration Site", "GeoSonic Sensor", "3000",false);
+addBookToLibrary( "Vibration Site", "GeoSonic Sensor", "3000",true);
 addBookToLibrary( "Vibration Site", "GeoSonic Sensor", "3000",true);

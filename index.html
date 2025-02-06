@@ -12,14 +12,48 @@
             <div class="app-name">The BookShelf</div>
             
         </div> 
-        <div class="content -container">
+        <div class="content-container">
             <div class="description-container">
-                <div class="intro">Welcome</div>
+                <div class="intro">Welcome to your digital library, catalogue and cozy home.</div>
                 <button class="add-book">New Book</button>
             </div>
             <div class="book-container"></div>
         </div>
+    
+    <dialog id="create-book">
+        <img src="icons/cancel.svg" class="exit">
+        <div class="title">Add a new book to your collection</div>
+        <form>
+            <div class="input-container">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div class="input-container">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author">
+            </div>
+            <div class="input-container">
+                <label for="page">Page Count</label>
+                <input type="number" id="page" name="page">
+            </div>
+            <div class="input-container">
+                <label for="isRead">Finished reading?</label>
+                <input type="checkbox" id="isRead" name="isRead">
+            </div>
+            <div class="button-container">
+                <button class="save">Save</button>
+                <button class="cancel">Cancel</button>
+                
+            </div>
+
+
+
+            
         
+        
+    </form></dialog>
+
     <script src="script.js"></script>
+
 </body>
 </html>
