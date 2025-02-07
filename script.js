@@ -22,12 +22,6 @@ function addBookToLibrary(title,author,pages,isRead){
 function createBookCard(book){
     const card= document.createElement("div");
     card.classList.add("book-card");
-    
-    const removeBtn =document.createElement("button");
-    removeBtn.classList.add("remove");
-    removeBtn.textContent ="X";
-    card.appendChild(removeBtn);
-    
 
 
     const title = document.createElement("h1");
@@ -48,10 +42,10 @@ function createBookCard(book){
     const isRead = document.createElement("button")
     isRead.classList.add("read");
     if (book.isRead){
-        isRead.textContent = "Read";
+        isRead.textContent = "READ";
         isRead.style.background = 'rgb(87, 179, 233)';
     }else{
-        isRead.textContent ="Unread";
+        isRead.textContent ="UNREAD";
         isRead.style.background = 'rgb(228, 101, 92)';
     }
     const removeCardBtn = document.createElement("button");
@@ -62,10 +56,10 @@ function createBookCard(book){
     isRead.addEventListener("click", () => {
         book.isRead = !book.isRead; // Toggle the boolean value
         if (book.isRead){
-            isRead.textContent = "Read";
+            isRead.textContent = "READ";
             isRead.style.background = 'rgb(87, 179, 233)';
         }else{
-            isRead.textContent ="Unread";
+            isRead.textContent ="UNREAD";
             isRead.style.background = 'rgb(228, 101, 92)';
         }
 
@@ -117,8 +111,7 @@ saveButton.addEventListener("click", (event)=>{
         alert("Please fill out all fields.");
     }
 });
-addBookToLibrary( "Vibration Site", "Instantel Micromate", "1676",true);
-addBookToLibrary( "Vibration Site", "GeoSonic Sensor", "3000",false);
-addBookToLibrary( "Vibration Site", "GeoSonic Sensor", "3000",false);
-addBookToLibrary( "Vibration Site", "GeoSonic Sensor", "3000",true);
+addBookToLibrary( "The Chamber of Secrets", "JK. Rownling", "1676",true);
+addBookToLibrary( "To Kill a Mockingbird", "Harper Lee", "3000",false);
+addBookToLibrary( "Pride and Prejudice", "Jane Austen", "3000",false);
 addBookToLibrary( "Vibration Site", "GeoSonic Sensor", "3000",true);
