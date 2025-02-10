@@ -39,6 +39,9 @@ function createBookCard(book){
     pages.textContent = `${book.pages} pages`;
     card.appendChild(pages);
 
+    const button_container = document.createElement("div");
+    button_container.classList.add("button-container");
+    
     const isRead = document.createElement("button")
     isRead.classList.add("read");
     if (book.isRead){
@@ -65,7 +68,8 @@ function createBookCard(book){
 
     });
 
-    card.append(isRead);
+    button_container.append(isRead);
+    card.append(button_container);
     return card;//return the bookcard
 }
 
