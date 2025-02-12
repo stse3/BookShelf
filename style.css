@@ -27,25 +27,33 @@ h1{
 }
 .app-name{
     font-family: "Averia Serif Libre";
-    font-size:30px;
+    font-size:40px;
 }
 
 p{
     font-family: "Instrument Sans";
     margin:0;
 }
+.content-container{
+    display:grid;
+    grid-template-columns: 65% 35%;
+    grid-template-rows: 30px auto;
+    gap:15px;
 
+
+}
 .description-container{
     padding:10px;
+    grid-column: 1/2;
     background-color:rgb(250, 233, 236);
-    height:300px; 
-    width:650px;
-    margin: 20px 0px 20px 0px;
     border-radius: 0px 500px 500px 0px;
     display:grid;
     grid-template-columns: 5% 60% 35%;
     justify-content:center;
-    gap:12px;
+    gap:15px;
+    height:350px;
+    grid-row: 2/3;
+    margin-right: 20px;
 
 }
 .intro{
@@ -56,12 +64,17 @@ p{
     justify-content:flex-end;
     font-family: 'Inria Serif';
     font-size:55px;
-    width:475px;
 
+}
+#intro-image{
+    grid-column: 2/3;
+    grid-row:2/3;
+    border: 1px solid black;
 }
 .description-container .description{
     grid-column:2/3;
     margin-left: 30px;
+    
 
 }
 button{
@@ -83,12 +96,17 @@ button{
     display:flex;
     flex-direction:row;
     justify-content:flex-end;
+    grid-column: 1/3;
+    grid-row: 3/4;
 }
 .book-container{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
     gap:20px;
     margin:80px;
+    grid-column: 1/3;
+    grid-row: 4/ -1;
 
 }
 
@@ -97,16 +115,27 @@ button{
     padding:10px;
     display:grid;
     gap:5px;
-    grid-template-rows: 0 30% 20% 20% 20%;
+    grid-template-rows: 0 3fr 2fr 2fr 2fr;
+    box-shadow: 5px 5px 3px rgba(0,0,0,0.2);
 }
 .title{
     grid-row: 2/3;
+    margin:0;
 }
 .author{
     grid-row:3/4;
+    font-family: 'Instrument Sans';
+    font-weight: 200;
+    font-size:20px;
+    margin:0;
 }
 .pages{
     grid-row:4/5;
+    font-family: 'Instrument Sans';
+    font-size:20px;
+    margin:0;
+
+
 }
 
 .button-container{
