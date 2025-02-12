@@ -1,16 +1,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Serif:ital@0;1&display=swap');
 
 /*Inria Serif, Averia Serif Libre, Instrument Sans*/
-
 body, html {
     background-color: rgb(255, 255, 255);
     margin:0;
     padding:0;
-    
+
 }
 h1,h2{
     font-family: 'Inria Serif';
@@ -29,7 +27,6 @@ h1{
     font-family: "Averia Serif Libre";
     font-size:40px;
 }
-
 p{
     font-family: "Instrument Sans";
     margin:0;
@@ -40,8 +37,6 @@ p{
     grid-template-rows: 30px auto 30px auto;
     gap:50px;
     align-items:center;
-
-
 }
 .description-container{
     padding:50px;
@@ -55,7 +50,6 @@ p{
     border-radius:20px;
     width:700px;
     margin-right:40px;
-
 }
 .intro{
     margin-left: 30px;
@@ -66,7 +60,6 @@ p{
     font-family: 'Inria Serif';
     font-size:55px;
     width:450px;
-
 }
 
 #intro-image {
@@ -81,7 +74,6 @@ p{
     border-radius: 15px;
     margin: 0 auto;           /* Centers the image if it's within a flexbox or grid */
 }
-
 #intro-image img {
     max-width: 100%;           /* Ensures the image doesn't overflow the container */
     height: auto;              /* Maintains aspect ratio */
@@ -90,8 +82,6 @@ p{
 .description-container .description{
     grid-column:2/3;
     margin-left: 30px;
-    
-
 }
 button{
     border-radius:0;
@@ -145,7 +135,6 @@ button{
     aspect-ratio: 1; /* Ensure the height and width are equal, making it a square */
     height: auto; /* Ensure the height adjusts based on the aspect ratio */
 }
-
 .title{
 
     margin:0;
@@ -163,43 +152,34 @@ button{
     font-family: 'Instrument Sans';
     font-size:17px;
     margin:0;
-
-
 }
-
 .button-container{
     display:grid;
     grid-template-columns: repeat(2,1fr);
     gap:5px;
     font-size:14px;
-
-
 }
 .button-container .remove{
     background-color:#fffdf8;
     grid-column: 1/2;
     font-size:14px;
 }
-
 .button-container .read{
     grid-column: 2/3;
     font-size:14px;
 }
 .button-container .remove:hover{
     background-color:#fcc9a7;
-
 }
 #create-book{
     font-family: 'Instrument Sans';
     padding:30px;
     border: 1px solid black;
 }
-
 dialog .title{
     font-family: 'Inria Serif';
     margin-bottom:20px;
 }
-
 form{
     display:flex;
     gap:7px;
