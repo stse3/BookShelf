@@ -6,7 +6,7 @@ function Book(title, author,pages, isRead){
     this.author = author; //author 
     this.pages = pages;
     this. isRead = isRead;
-    this.index = myLibrary.length;
+    this.index = myLibrary.length+1;
 
 }
 
@@ -18,60 +18,76 @@ function addBookToLibrary(title,author,pages,isRead){
     bookshelf.appendChild(bookCard);
 
 }
-
-function createBookCard(book){
-    const card= document.createElement("div");
+function createBookCard(book) {
+    const card = document.createElement("div");
     card.classList.add("book-card");
+
+    const cardInfo = document.createElement("div");
+    card.classList.add("card-info");
 
 
     const title = document.createElement("h1");
     title.classList.add("title");
-    title.textContent= `${book.title}`;
-    card.appendChild(title);
+    title.textContent = `${book.title}`;
+    cardInfo.appendChild(title);
 
     const author = document.createElement("h2");
     author.classList.add("author");
     author.textContent = `${book.author}`;
-    card.appendChild(author);
+    cardInfo.appendChild(author);
 
     const pages = document.createElement("p");
     pages.classList.add("pages");
     pages.textContent = `${book.pages} pages`;
-    card.appendChild(pages);
+    cardInfo.appendChild(pages);
 
     const button_container = document.createElement("div");
     button_container.classList.add("button-container");
-    
-    const isRead = document.createElement("button")
+
+    const isRead = document.createElement("button");
     isRead.classList.add("read");
-    if (book.isRead){
+    if (book.isRead) {
         isRead.textContent = "READ";
-        isRead.style.background = 'rgb(87, 179, 233)';
-    }else{
-        isRead.textContent ="UNREAD";
-        isRead.style.background = 'rgb(228, 101, 92)';
+        isRead.style.background = '#FFDCDC';
+    } else {
+        isRead.textContent = "UNREAD";
+        isRead.style.background = '#FFEBD9';
     }
+
     const removeCardBtn = document.createElement("button");
     removeCardBtn.classList.add("remove");
-    removeCardBtn.value=book.index;
-    removeCardBtn.textContent='X'; 
-    
+    removeCardBtn.value = book.index; // Store book index in the button value
+    removeCardBtn.textContent = 'REMOVE';
+
     isRead.addEventListener("click", () => {
         book.isRead = !book.isRead; // Toggle the boolean value
-        if (book.isRead){
+        if (book.isRead) {
             isRead.textContent = "READ";
-            isRead.style.background = 'rgb(87, 179, 233)';
-        }else{
-            isRead.textContent ="UNREAD";
-            isRead.style.background = 'rgb(228, 101, 92)';
+            isRead.style.background = '#FFDCDC';
+        } else {
+            isRead.textContent = "UNREAD";
+            isRead.style.background = '#FFEBD9';
         }
-
     });
 
+    // Event listener to remove the card
+    removeCardBtn.addEventListener("click", () => {
+        // Find the index of the book that needs to be removed
+        const bookIndex = myLibrary.findIndex((b) => b.index === book.index);
+        if (bookIndex !== -1) {
+            // Remove the book from the array
+            myLibrary.splice(bookIndex, 1);
+            // Remove the book card from the DOM
+            card.remove();
+        }
+    });
+    card.append(cardInfo);
+    button_container.append(removeCardBtn);
     button_container.append(isRead);
     card.append(button_container);
-    return card;//return the bookcard
+    return card;
 }
+
 
 const createBookButton  = document.querySelector(".add-book");
 const createBookDialog = document.getElementById("create-book");
@@ -82,11 +98,6 @@ function createBook(){
 }
 createBookButton.addEventListener("click", createBook);
 
-const cancelBttn = document.querySelector(".exit");
-cancelBttn.addEventListener("click", (event)=>{
-    event.preventDefault();
-    createBookDialog.close()
-});
 
 const bottomCancelButton = document.querySelector(".cancel");
 bottomCancelButton.addEventListener("click", (event)=>{
@@ -118,4 +129,7 @@ saveButton.addEventListener("click", (event)=>{
 addBookToLibrary( "The Chamber of Secrets", "JK. Rownling", "1676",true);
 addBookToLibrary( "To Kill a Mockingbird", "Harper Lee", "3000",false);
 addBookToLibrary( "Pride and Prejudice", "Jane Austen", "3000",false);
-addBookToLibrary( "Vibration Site", "GeoSonic Sensor", "3000",true);
+addBookToLibrary( "To Kill a Mockingbird", "Harper Lee", "3000",false);
+addBookToLibrary( "Pride and Prejudice", "Jane Austen", "3000",false);
+addBookToLibrary( "To Kill a Mockingbird", "Harper Lee", "3000",false);
+addBookToLibrary( "Pride and Prejudice", "Jane Austen", "3000",false);
